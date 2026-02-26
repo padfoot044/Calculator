@@ -1,75 +1,131 @@
-body
-{
-    background-color: rgb(185, 184, 248);
-}
-.mainBox
-{
-    border: 2px solid ; 
-    border-top: 40px solid ;
-    border-left: 5px solid ;
-    border-right: 5px solid;
-    border-bottom: 8px solid;
-    border-top-left-radius:  4px;
-    border-top-right-radius:  4px;
-    border-color:  #8f8c97;
-    float:left;
-    margin-left: 40%;
-    margin-top: 5%;
-
+:root {
+  --bg: #0f172a;
+  --surface: #111827;
+  --surface-2: #1f2937;
+  --key: #0b1220;
+  --key-hover: #1d283a;
+  --operator: #00d4ff;
+  --operator-hover: #20e0ff;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --danger: #f97316;
+  --success: #22c55e;
+  --shadow: 0 24px 60px rgba(2, 6, 23, 0.55);
 }
 
-.box
-{
-    border:none;
-    width: 240px;
-    height: 90px;
-    font-size: 25px;
-    padding: 5px;
-    text-align: right;
-    
-}
-.button1
-{
-    border: 0px solid transparent;
-    background: transparent;
-    float: left;
-    width: 25%;
-    height: 60px;
-    text-align: center;
-    color:black;
-    padding: 10px 10px;
-    font-family: Bahnschrift;
-    font-weight: 350;
-    font-size:22px;
-    text-align: center;
-    transition: all 0.3;
-    text-transform: uppercase;
-    
+* {
+  box-sizing: border-box;
 }
 
-.button1:hover {
-    background: rgb(158, 238, 205);
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #1e293b, var(--bg));
+  color: var(--text);
 }
 
-.button_back
-{
-    background: linear-gradient(rgb(225, 228, 238) ,rgb(255, 254, 254));
-    height: 300px;
+.app-shell {
+  width: min(100%, 420px);
+  padding: 1rem;
 }
-.delimg,
-.delimg:hover
-{
-    background-image: url("delsymbol.png");
-    background-position: center;
-    background-repeat: no-repeat;
 
+.calculator {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, rgba(31, 41, 55, 0.9), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(148, 163, 184, 0.2);
 }
-.sym
-{
-    color:rgb(62, 240, 216);
-    font-size: 26px;
-    
+
+.display-wrap {
+  padding: 1.25rem;
+  background: rgba(15, 23, 42, 0.65);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
 }
-    
 
+.expression {
+  min-height: 1.2rem;
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  text-align: right;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
 
+.display {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  text-align: right;
+  outline: none;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+  padding: 1rem;
+}
+
+.key {
+  border: 0;
+  border-radius: 14px;
+  min-height: 60px;
+  font-size: 1.35rem;
+  color: var(--text);
+  background: var(--key);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.key:hover {
+  background: var(--key-hover);
+  transform: translateY(-1px);
+}
+
+.key:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.key-fn {
+  color: var(--danger);
+}
+
+.key-op {
+  color: var(--operator);
+}
+
+.key-op:hover {
+  color: var(--operator-hover);
+}
+
+.key-eq {
+  color: #00120b;
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  font-weight: 700;
+}
+
+.key-eq:hover {
+  background: linear-gradient(135deg, #34d399, #86efac);
+}
+
+.key-zero {
+  grid-column: span 2;
+}
+
+@media (max-width: 420px) {
+  .keyboard {
+    gap: 0.5rem;
+    padding: 0.85rem;
+  }
+
+  .key {
+    min-height: 56px;
+  }
+}

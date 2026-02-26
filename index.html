@@ -1,40 +1,56 @@
-<!DOCTYPE HTMl>
-<html>
-    <head>
-        <title>Calculator</title>
-        <link rel="stylesheet" href='style.css'>
-    </head>
-    <body>
-      
-        <div class="mainBox">
-            <input type="text" id="numpad" class="box" readonly/><br/>
-            <div class="button_back">
-            <input type="button" value="C" class='button1' onclick="xclr()"/>
-            <input type="button" value="%" class='button1' onclick="cal('%')"/>
-            <input type="button" class='button1 delimg' onclick="xxclr()"/>
-            <input type="button" value="/" class='button1 sym' onclick="cal('/')"/>
-            <br/>
-            <input type="button" value="7" class='button1' onclick="cal(7)"/>
-            <input type="button" value="8" class='button1' onclick="cal(8)"/>
-            <input type="button" value="9" class='button1' onclick="cal(9)"/>
-            <input type="button" value="*" class='button1 sym' onclick="cal('*')"/>
-            <br/>
-            <input type="button" value="4" class='button1' onclick="cal(4)"/>
-            <input type="button" value="5" class='button1' onclick="cal(5)"/>
-            <input type="button" value="6" class='button1' onclick="cal(6)"/>
-            <input type="button" value="-" class='button1 sym' onclick="cal('-')"/>
-            <br/>
-            <input type="button" value="1" class='button1' onclick="cal(1)"/>
-            <input type="button" value="2" class='button1' onclick="cal(2)"/>
-            <input type="button" value="3" class='button1' onclick="cal(3)"/>
-            <input type="button" value="+" class='button1 sym' onclick="cal('+')"/>
-            <br/>
-            <input type="button" value="0" class='button1' onclick="cal(0)"/>
-            <input type="button" value="00" class='button1' onclick="cal('0'+'0')"/>
-            <input type="button" value="." class='button1' onclick="cal('.')"/>
-            <input type="button" value="=" class='button1 sym' onclick="result()"/>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="calculator" aria-label="Calculator">
+        <header class="display-wrap">
+          <p id="expression" class="expression" aria-live="polite"></p>
+          <input
+            type="text"
+            id="numpad"
+            class="display"
+            value="0"
+            readonly
+            aria-label="Calculator display"
+          />
+        </header>
+
+        <div class="keyboard" role="group" aria-label="Calculator controls">
+          <button type="button" class="key key-fn" data-action="clear">C</button>
+          <button type="button" class="key key-fn" data-action="percent">%</button>
+          <button type="button" class="key key-fn" data-action="delete" aria-label="Delete one character">
+            ⌫
+          </button>
+          <button type="button" class="key key-op" data-value="/">÷</button>
+
+          <button type="button" class="key" data-value="7">7</button>
+          <button type="button" class="key" data-value="8">8</button>
+          <button type="button" class="key" data-value="9">9</button>
+          <button type="button" class="key key-op" data-value="*">×</button>
+
+          <button type="button" class="key" data-value="4">4</button>
+          <button type="button" class="key" data-value="5">5</button>
+          <button type="button" class="key" data-value="6">6</button>
+          <button type="button" class="key key-op" data-value="-">−</button>
+
+          <button type="button" class="key" data-value="1">1</button>
+          <button type="button" class="key" data-value="2">2</button>
+          <button type="button" class="key" data-value="3">3</button>
+          <button type="button" class="key key-op" data-value="+">+</button>
+
+          <button type="button" class="key key-zero" data-value="0">0</button>
+          <button type="button" class="key" data-value=".">.</button>
+          <button type="button" class="key key-eq" data-action="equals">=</button>
         </div>
-        </div>
-        <script src="calc.js"> </script>
-    </body>
+      </section>
+    </main>
+
+    <script src="calc.js"></script>
+  </body>
 </html>
